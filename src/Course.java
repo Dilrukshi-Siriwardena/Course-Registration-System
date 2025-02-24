@@ -2,6 +2,11 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class Course implements java.io.Serializable {
 	String courseName;
@@ -162,10 +167,19 @@ public class Course implements java.io.Serializable {
 	}
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/myuniversitycourses","root","Dilmeli1998*");
+                System.out.println(con);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Course.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(Course.class.getName()).log(Level.SEVERE, null, ex);
+            }
 		Admin admin = new Admin();
 		File fileName = new File("CRSData.ser");
 		if (!fileName.exists()) {
-			fileName = new File("MyUniversityCourses.csv");
+			fileName = new File("C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\myuniversitycourses.csv");
 
 			// References one line at a time
 			String line = null;
