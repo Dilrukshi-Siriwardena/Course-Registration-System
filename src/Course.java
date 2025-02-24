@@ -1,10 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -14,25 +9,23 @@ public class Course implements java.io.Serializable {
 	int maxStudents;
 	int currentStudents;
 	ArrayList<Student> studentList;
-	String instructorName;
+	String departmentName;
 	int courseSection;
-	String courseLocation;
-	static ArrayList<Course> courseList = new ArrayList<Course>();
+	static ArrayList<Course> courseList = new ArrayList<>();
 
 	Course() {
 
 	}
 
-	Course(String courseName, String courseID, int maxStudents, int currentStudents, String instructorName,
-			int courseSection, String courseLocation) {
+	Course(String courseName, String courseID, int maxStudents, int currentStudents, String departmentName,
+			int courseSection) {
 		this.courseName = courseName;
 		this.courseID = courseID;
 		this.maxStudents = maxStudents;
 		this.currentStudents = currentStudents;
-		this.studentList = new ArrayList<Student>();
-		this.instructorName = instructorName;
+		this.studentList = new ArrayList<>();
+		this.departmentName = departmentName;
 		this.courseSection = courseSection;
-		this.courseLocation = courseLocation;
 	}
 
 	public String print() {
@@ -46,24 +39,24 @@ public class Course implements java.io.Serializable {
 			}
 			System.out.println("Course: " + courseName + "\n" + "Course ID: " + courseID + "\n"
 					+ "Maximum # of Students: " + maxStudents + "\n" + "Current # of Students: " + currentStudents
-					+ "\n" + "Registered Students: " + names + "\n" + "Instructor: " + instructorName + "\n"
-					+ "Section: " + courseSection + "\n" + "Location: " + courseLocation);
+					+ "\n" + "Registered Students: " + names + "\n" + "Department: " + departmentName + "\n"
+					+ "Section: " + courseSection + "\n" + "Location: ");
 			System.out.println("==========");
 			String text1 = "Course: " + courseName + "\n" + "Course ID: " + courseID + "\n" + "Maximum # of Students: "
 					+ maxStudents + "\n" + "Current # of Students: " + currentStudents + "\n" + "Registered Students: "
-					+ names + "\n" + "Instructor: " + instructorName + "\n" + "Section: " + courseSection + "\n"
-					+ "Location: " + courseLocation;
+					+ names + "\n" + "Department: " + departmentName + "\n" + "Section: " + courseSection + "\n"
+					+ "Location: " ;
 			return (text1);
 		} else {
 			System.out.println("Course: " + courseName + "\n" + "Course ID: " + courseID + "\n"
 					+ "Maximum # of Students: " + maxStudents + "\n" + "Current # of Students: " + currentStudents
-					+ "\n" + "Registered Students: " + studentList + "\n" + "Instructor: " + instructorName + "\n"
-					+ "Section: " + courseSection + "\n" + "Location: " + courseLocation);
+					+ "\n" + "Registered Students: " + studentList + "\n" + "Department: " + departmentName + "\n"
+					+ "Section: " + courseSection + "\n" + "Location: " );
 			System.out.println("==========");
 			String text2 = "Course: " + courseName + "\n" + "Course ID: " + courseID + "\n" + "Maximum # of Students: "
 					+ maxStudents + "\n" + "Current # of Students: " + currentStudents + "\n" + "Registered Students: "
-					+ studentList + "\n" + "Instructor: " + instructorName + "\n" + "Section: " + courseSection + "\n"
-					+ "Location: " + courseLocation;
+					+ studentList + "\n" + "Department: " + departmentName + "\n" + "Section: " + courseSection + "\n"
+					+ "Location: " ;
 			return (text2);
 		}
 	}
@@ -71,13 +64,11 @@ public class Course implements java.io.Serializable {
 	public String studentPrint() {
 		System.out.println("Course: " + courseName + "\n" + "Course ID: " + courseID + "\n" + "Maximum # of Students: "
 				+ maxStudents + "\n" + "Current # of Students: " + currentStudents + "\n" + "Registered Students: "
-				+ "\n" + "Instructor: " + instructorName + "\n" + "Section: " + courseSection + "\n" + "Location: "
-				+ courseLocation);
+				+ "\n" + "Department: " + departmentName + "\n" + "Section: " + courseSection + "\n" + "Location: ");
 		System.out.println("==========");
 		String text = "Course: " + courseName + "\n" + "Course ID: " + courseID + "\n" + "Maximum # of Students: "
 				+ maxStudents + "\n" + "Current # of Students: " + currentStudents + "\n" + "Registered Students: "
-				+ "\n" + "Instructor: " + instructorName + "\n" + "Section: " + courseSection + "\n" + "Location: "
-				+ courseLocation;
+				+ "\n" + "Department: " + departmentName + "\n" + "Section: " + courseSection + "\n" + "Location: ";
 		return (text);
 	}
 
@@ -123,12 +114,12 @@ public class Course implements java.io.Serializable {
 		this.studentList = studentList;
 	}
 
-	public String getInstructorName() {
-		return instructorName;
+	public String getDepartmentName() {
+		return departmentName;
 	}
 
-	public void setInstructorName(String instructorName) {
-		this.instructorName = instructorName;
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
 	}
 
 	public int getCourseSection() {
@@ -137,14 +128,6 @@ public class Course implements java.io.Serializable {
 
 	public void setCourseSection() {
 		this.courseSection = courseSection;
-	}
-
-	public String getCourseLocation() {
-		return courseLocation;
-	}
-
-	public void setCourseLocation(String courseLocation) {
-		this.courseLocation = courseLocation;
 	}
 
 	public static void deSerialization() {
@@ -233,7 +216,7 @@ public class Course implements java.io.Serializable {
 			// necessary tokens
 			// input=input.replace("Course_Name", " ").replace("Course_Id", "
 			// ").replace("Maximum_Students", " ").replace("Current_Students", "
-			// ").replace("List_Of_Names", " ").replace("Course_Instructor",
+			// ").replace("List_Of_Names", " ").replace("Course_Department",
 			// "").replace("Course_Section_Number", " ").replace("Course_Location", " ");
 
 			// The tokenizer will look at each string token within the input
@@ -252,15 +235,14 @@ public class Course implements java.io.Serializable {
 					String trimmedTest1 = test1.replace(" ", "");
 					int currentStudents = Integer.parseInt(trimmedTest1);
 					strTokens.nextToken();
-					String instructorName = strTokens.nextToken();
+					String departmentName = strTokens.nextToken();
 					String test2 = strTokens.nextToken();
 					String trimmedTest2 = test2.replace(" ", "");
 					int courseSection = Integer.parseInt(trimmedTest2);
-					String courseLocation = strTokens.nextToken();
 
 					// creates a course list from the elements found
-					Course c = new Course(courseName, courseID, maxStudents, currentStudents, instructorName,
-							courseSection, courseLocation);
+					Course c = new Course(courseName, courseID, maxStudents, currentStudents, departmentName,
+							courseSection);
 					courseList.add(c);
 					count++;
 				} else {
@@ -302,7 +284,7 @@ public class Course implements java.io.Serializable {
 					Student student = new Student(firstName, lastName);
 					Admin.masterRegistry.add(student);
 					//System.out.println(Admin.masterRegistry.size());
-				}
+                                }
 
 				// Always close files
 				bufferedReader.close();
@@ -382,7 +364,7 @@ public class Course implements java.io.Serializable {
 					System.out.println("Enter '6' to Exit");
 					String option3 = in.readLine();
 
-					if (option3.contentEquals("1")) {
+					if(option3.contentEquals("1")) {
 						admin.createCourse();
 					} else if (option3.contentEquals("2")) {
 						admin.deleteCourse();
@@ -559,7 +541,7 @@ public class Course implements java.io.Serializable {
 					valid = true;
 				} else {
 					System.out.println("Sorry the username is not correct! Try again.");
-					continue;
+					
 				}
 			}
 
@@ -645,3 +627,5 @@ public class Course implements java.io.Serializable {
 		}
 
 	}
+}
+
