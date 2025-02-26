@@ -23,7 +23,7 @@ Display info for a course (by course ID)
 Register a student (allows admin to add student w/o assigning to a course)
 Exit
 Reports
-View all courses (for every course display list of enrolled students' names, ids, # of students registered, max number of students allowed to be registered)
+View all courses (for every course display list of enrolled students' names, ids, number of students registered, max number of students allowed to be registered)
 View all full courses
 Write to a file list of full courses
 View names of students registered to specific course
