@@ -3,7 +3,7 @@ A course registration system (CRS) created using object oriented programming (ja
 
 ==========
 
-Fulfills the following requirements:
+Fulfills the following requirements: 
 
 The CRS stores the following information about each course:
 course name
